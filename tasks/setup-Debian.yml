@@ -1,0 +1,11 @@
+---
+- name: Ensure .gradle exists
+  file:
+    path: "{{ ansible_env.HOME }}/.gradle"
+    state: directory
+    owner: "{{ ansible_env.USER }}"
+
+- name: Upload gradle properties file
+  template:
+    src: gradle.properties
+    dest: "{{ ansible_env.HOME }}/.gradle/gradle.properties"
